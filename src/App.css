@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background: #232126;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.svg-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+svg {
+  position: fixed;
+  position: 999;
+}
+.side-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 20%;
+  height: 50px;
+  background: #88b5e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
