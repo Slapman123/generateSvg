@@ -13,6 +13,8 @@ const LineModel = types.model("LineModel", {
   y1_position: types.number,
   x2_position: types.number,
   y2_position: types.number,
+  line_color: types.string,
+  line_stroke: types.string,
 });
 
 const CircleModel = types.model("CircleModel", {
@@ -52,13 +54,23 @@ const NewShapeModel = types
       x1_position: number,
       y1_position: number,
       x2_position: number,
-      y2_position: number
+      y2_position: number,
+      line_color: string,
+      line_stroke: string
     ) {
       const id = uuidv4();
       applySnapshot(self, {
         ...self,
         lineShapes: [
-          { id, x1_position, y1_position, x2_position, y2_position },
+          {
+            id,
+            x1_position,
+            y1_position,
+            x2_position,
+            y2_position,
+            line_color,
+            line_stroke,
+          },
           ...self.lineShapes,
         ],
       });

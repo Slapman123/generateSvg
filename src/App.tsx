@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import { setupRootStore } from "./mst/setup";
 import { DraggableLayerComponent } from "./components/DraggableLayerComponent";
+import { SideBar } from "./components/SideBar";
 
 interface Props {}
 
@@ -28,6 +29,7 @@ class App extends React.Component<Props, State> {
     return (
       <Provider rootTree={rootTree}>
         <div className="App">
+          <SideBar />
           <DraggableLayerComponent />
         </div>
       </Provider>

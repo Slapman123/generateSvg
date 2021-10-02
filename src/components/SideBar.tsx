@@ -18,22 +18,23 @@ class SideBar extends React.Component<Props, State> {
       selected_shape: "",
     };
   }
-  onSelect(e: any) {
-    const selected_shape = e.target.value;
-    const { rootTree } = this.props;
-    if (!rootTree) return null;
-    rootTree.positions.selected_shape.selectShape(selected_shape);
-    this.setState({ selected_shape });
-  }
 
   render() {
     return (
       <div className="side-bar">
-        <select onChange={this.onSelect} value={this.state.selected_shape}>
-          <option value="rect">Rectangle</option>
-          <option value="line">Line</option>
-          <option value="circle">Circle</option>
-        </select>
+        <button>Line</button>
+        <div className="options">
+          <label htmlFor="color">Pick a Line color</label>
+          <input id="color" name="color" type="color" />
+        </div>
+        <button>Circle</button>
+        <div className="options">
+          <input type="color" />
+        </div>
+        <button>Rectangle</button>
+        <div className="options">
+          <input type="color" />
+        </div>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import { inject, observer } from "mobx-react";
 import * as React from "react";
 import { Root } from "../mst";
-import { SideBar } from "./SideBar";
 import { LineComponent } from "./LineComponent";
 
 interface Props {
@@ -49,14 +48,15 @@ class DraggableLayerComponent extends React.Component<Props, State> {
     this.setState({
       firstDot: true,
     });
-    console.log("point2" + x2_position, y2_position);
     const { rootTree } = this.props;
     if (!rootTree) return console.log("aca");
     rootTree.positions.svg_elements.addLines(
       this.state.x1_position,
       this.state.y1_position,
       x2_position,
-      y2_position
+      y2_position,
+      "red",
+      "2"
     );
   };
 
@@ -74,7 +74,6 @@ class DraggableLayerComponent extends React.Component<Props, State> {
     if (!rootTree) return null;
     return (
       <div className="layer">
-        <SideBar />
         <div className="svg-holder">
           <svg
             width="100%"
@@ -85,6 +84,16 @@ class DraggableLayerComponent extends React.Component<Props, State> {
             onClick={firstDot ? this.onClickPoint1 : this.onClickPoint2}
             onMouseMove={this.onMouseMove}
           >
+            {!firstDot ? (
+              <line
+                x1={x1_position}
+                x2={prevX}
+                y1={y1_position}
+                y2={prevY}
+                stroke="orange"
+                strokeWidth="2"
+              />
+            ) : null}
             {rootTree.positions.svg_elements.lineShapes.map((item) => {
               return <LineComponent lineModel={item} key={item.id} />;
             })}
